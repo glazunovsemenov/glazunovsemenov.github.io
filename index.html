@@ -14,6 +14,7 @@
   <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/ekko-lightbox.min.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css"/>
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -34,10 +35,11 @@
   <div id="feedback" class="col-xs-3">
     <div id="address">г. Ярославль,<br/> Малый Московский пер., дом 1</div>
     <div id="phone">Тел.: <span>+7 (4852) 33-87-53</span></div>
-    <form role="form">
-      <input type="text" class="form-control" id="name-input" placeholder="Ваше имя*">
-      <input type="text" class="form-control" id="phone-input" placeholder="Ваш телефон*">
-      <a href="#" class="btn" type="submit">Оставить заявку</a>
+    <form role="form" method="POST" action="http://nodesendmail.herokuapp.com/sendmail">
+      <input type="text" value="glazunovsemenov.ru" name="hostname" hidden="hidden">
+      <input type="text" class="form-control" id="name-input" name="name" placeholder="Ваше имя*">
+      <input type="text" class="form-control" id="phone-input" name="phone" placeholder="Ваш телефон*">
+      <button class="btn" type="submit">Оставить заявку</button>
     </form>
   </div>
 </div>
@@ -170,51 +172,51 @@
 <h1>Услуги</h1>
 <div id="service">
   <div class="row">
-    <div class="col-md-6 service-col">
+    <div class="col-xs-6 service-col">
       <img src="images/services/1.png"/>
       <p>Автоюрист</p>
     </div>
-    <div class="col-md-6 service-col">
+    <div class="col-xs-6 service-col">
       <img src="images/services/6.png"/>
       <p>Юридическое сопровождение бизнеса</p>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 service-col">
+    <div class="col-xs-6 service-col">
       <img src="images/services/2.png"/>
       <p>Защита прав потребителей</p>
     </div>
-    <div class="col-md-6 service-col">
+    <div class="col-xs-6 service-col">
       <img src="images/services/7.png"/>
       <p>Корпоративные споры</p>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 service-col">
+    <div class="col-xs-6 service-col">
       <img src="images/services/3.png"/>
       <p>Семейные споры</p>
     </div>
-    <div class="col-md-6 service-col">
+    <div class="col-xs-6 service-col">
       <img src="images/services/8.png"/>
       <p>Ликвидация бизнеса</p>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 service-col">
+    <div class="col-xs-6 service-col">
       <img src="images/services/4.png"/>
       <p>Защита по уголовным делам</p>
     </div>
-    <div class="col-md-6 service-col">
+    <div class="col-xs-6 service-col">
       <img src="images/services/9.png"/>
       <p>Правовой аудит</p>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 service-col">
+    <div class="col-xs-6 service-col">
       <img src="images/services/5.png"/>
       <p>Жилищные споры</p>
     </div>
-    <div class="col-md-6 service-col">
+    <div class="col-xs-6 service-col">
       <img src="images/services/10.png"/>
       <p>Корпоративная безопасность</p>
     </div>
@@ -223,41 +225,41 @@
 <!-- Статистика -->
 <div id="stat">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-xs-6">
       <span>143</span><br/>
       <span>Судебных заседаний проведено нашими специалистами</span>
     </div>
-    <div class="col-md-6">
+    <div class="col-xs-6">
       <span>357</span><br/>
       <span>Производств по исполнению судебных актов проведено нашими специалистами</span>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-xs-6">
       <span>48</span><br/>
       <span>Выигранных судебных дел на счету нашей компании в 2013 году</span>
     </div>
-    <div class="col-md-6">
+    <div class="col-xs-6">
       <span>42 345 000</span><br/>
       <span>Денежных средств получено от исполнения судебных актов</span>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-xs-6">
       <span>43 678 000</span><br/>
       <span>Сумма удовлетворенных требований</span>
     </div>
-    <div class="col-md-6">
+    <div class="col-xs-6">
       <span>319</span><br/>
       <span>Договоров подготовлено нашими специалистами</span>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-xs-6">
       <span>89,7</span><br/>
       <span>Процент выигранных дел</span>
     </div>
-    <div class="col-md-6">
+    <div class="col-xs-6">
       <span>520</span><br/>
       <span>Юридических консультаций проведено нашими специалистами</span>
     </div>
@@ -269,7 +271,9 @@
   <h1>Наши&nbsp;клиенты</h1>
   <div class="row">
     <div class="col-xs-2">
-      <img class="letter-img" src="images/letters/1.jpg">
+      <a href="images/letters/1.jpg" data-toggle="lightbox">
+        <img class="letter-img" src="images/letters/1.jpg">
+      </a>
     </div>
     <div class="col-xs-10">
       <p class="proj-head-left">ООО «КИПмонтаж»</p>
@@ -292,12 +296,16 @@
       </p>
     </div>
     <div class="col-xs-2">
-      <img class="letter-img" src="images/letters/2.jpg">
+      <a href="images/letters/2.jpg" data-toggle="lightbox">
+        <img class="letter-img" src="images/letters/2.jpg">
+      </a>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-2">
-      <img class="letter-img" src="images/letters/3.jpg">
+      <a href="images/letters/3.jpg" data-toggle="lightbox">
+        <img class="letter-img" src="images/letters/3.jpg">
+      </a>
     </div>
     <div class="col-xs-10">
       <p class="proj-head-left">
@@ -324,12 +332,16 @@
       </p>
     </div>
     <div class="col-xs-2">
-      <img class="letter-img" src="images/letters/4.jpg">
+      <a href="images/letters/4.jpg" data-toggle="lightbox">
+        <img class="letter-img" src="images/letters/4.jpg">
+      </a>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-2">
-      <img class="letter-img" src="images/letters/5.jpg">
+      <a href="images/letters/5.jpg" data-toggle="lightbox">
+        <img class="letter-img" src="images/letters/5.jpg">
+      </a>
     </div>
     <div class="col-xs-10">
       <p class="proj-head-left">ООО «БЭСТ»</p>
@@ -342,15 +354,24 @@
 </div><!--projects-->
 </div><!--body-->
 <script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.equalheights.min.js"></script>
+<script src="js/ekko-lightbox.min.js"></script>
 <script>
-  $('#main-block>.row>div').equalHeights();
-  $('#descr-block>.row-top>div').equalHeights();
-  $('#descr-block>.row-middle>div').equalHeights();
-  $('#descr-block>.row-bottom>div').equalHeights();
-  $('#descr-block>.row>.opacity-block>.border-top').equalHeights();
-  $('#descr-block>.row>.opacity-block>.border-middle').equalHeights();
-  $('#descr-block>.row>.opacity-block>.border-bottom').equalHeights();
+  $(document).ready(function ($) {
+    $('#main-block>.row>div').equalHeights();
+    $('#descr-block>.row-top>div').equalHeights();
+    $('#descr-block>.row-middle>div').equalHeights();
+    $('#descr-block>.row-bottom>div').equalHeights();
+    $('#descr-block>.row>.opacity-block>.border-top').equalHeights();
+    $('#descr-block>.row>.opacity-block>.border-middle').equalHeights();
+    $('#descr-block>.row>.opacity-block>.border-bottom').equalHeights();
+
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+  });
 </script>
 </body>
 </html>

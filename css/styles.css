@@ -192,7 +192,7 @@ h2 {
     background-image: url("../images/who-bg.jpg");
     background-repeat: no-repeat;
     background-position: 50% 100%;
-    background-size: 100% auto;
+    background-size: 100% 100%;
     padding: 6%;
     font-family: 'Verdana', serif;
 }
